@@ -1,0 +1,29 @@
+import java.io.*;
+
+public class FileHandlingExample {
+    public static void main(String[] args) {
+        try {
+            // Writing to file
+            FileWriter writer = new FileWriter("test.txt");
+            writer.write("Hello, this is Java File Handling Example.\n");
+            writer.write("Learning Streams is easy!");
+            writer.close();
+
+            System.out.println("Data written successfully.\n");
+
+            // Reading from file
+            BufferedReader reader = new BufferedReader(new FileReader("test.txt"));
+            String line;
+
+            System.out.println("Reading file content:");
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            reader.close();
+
+        } catch (IOException e) {
+            System.out.println("Error: " + e);
+        }
+    }
+}
