@@ -1,0 +1,178 @@
+1. BankAccount & SavingsAccount
+class BankAccount {
+    double balance;
+
+    BankAccount(double balance) {
+        this.balance = balance;
+    }
+
+    void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount);
+        System.out.println("Balance: " + balance);
+    }
+
+    void withdraw(double amount) {
+        balance -= amount;
+        System.out.println("Withdrawn: " + amount);
+        System.out.println("Balance: " + balance);
+    }
+}
+
+class SavingsAccount extends BankAccount {
+
+    SavingsAccount(double balance) {
+        super(balance);
+    }
+
+    @Override
+    void withdraw(double amount) {
+        if (balance - amount < 100) {
+            System.out.println("Withdrawal denied! Minimum balance should be 100.");
+        } else {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+            System.out.println("Balance: " + balance);
+        }
+    }
+
+    public static void main(String[] args) {
+        SavingsAccount sa = new SavingsAccount(500);
+        sa.deposit(200);
+        sa.withdraw(550);
+    }
+}
+2 Employee Hierarchy
+class Employee {
+    String name, address, jobTitle;
+    double salary;
+
+    Employee(String name, String address, double salary, String jobTitle) {
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.jobTitle = jobTitle;
+    }
+
+    double calculateBonus() {
+        return salary * 0.10;
+    }
+
+    void performanceReport() {
+        System.out.println(jobTitle + " performance is satisfactory.");
+    }
+}
+
+class Manager extends Employee {
+    Manager(String name, String address, double salary) {
+        super(name, address, salary, "Manager");
+    }
+
+    void manageProject() {
+        System.out.println("Manager is managing projects.");
+    }
+}
+
+class Developer extends Employee {
+    Developer(String name, String address, double salary) {
+        super(name, address, salary, "Developer");
+    }
+
+    void manageProject() {
+        System.out.println("Developer is developing applications.");
+    }
+}
+
+class Programmer extends Employee {
+    Programmer(String name, String address, double salary) {
+        super(name, address, salary, "Programmer");
+    }
+
+    void manageProject() {
+        System.out.println("Programmer is writing code.");
+    }
+}
+
+class Company {
+    public static void main(String[] args) {
+        Manager m = new Manager("Sid", "Pune", 80000);
+        Developer d = new Developer("Rahul", "Mumbai", 60000);
+        Programmer p = new Programmer("Amit", "Kolhapur", 50000);
+
+        m.performanceReport();
+        System.out.println("Bonus: " + m.calculateBonus());
+        m.manageProject();
+
+        d.performanceReport();
+        System.out.println("Bonus: " + d.calculateBonus());
+        d.manageProject();
+
+        p.performanceReport();
+        System.out.println("Bonus: " + p.calculateBonus());
+        p.manageProject();
+    }
+}
+3)Abstract Class Shape
+abstract class Shape {
+    double dim1, dim2;
+
+    Shape(double dim1, double dim2) {
+        this.dim1 = dim1;
+        this.dim2 = dim2;
+    }
+
+    abstract double area();
+}
+
+class Rectangle extends Shape {
+    Rectangle(double l, double b) {
+        super(l, b);
+    }
+
+    double area() {
+        return dim1 * dim2;
+    }
+}
+
+class Triangle extends Shape {
+    Triangle(double b, double h) {
+        super(b, h);
+    }
+
+    double area() {
+        return 0.5 * dim1 * dim2;
+    }
+
+    public static void main(String[] args) {
+        Rectangle r = new Rectangle(10, 5);
+        Triangle t = new Triangle(6, 4);
+
+        System.out.println("Area of Rectangle: " + r.area());
+        System.out.println("Area of Triangle: " + t.area());
+    }
+}
+4)Multilevel Inheritance (One by One)
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking");
+    }
+}
+
+class Puppy extends Dog {
+    void weep() {
+        System.out.println("Puppy is weeping");
+    }
+
+    public static void main(String[] args) {
+        Puppy p = new Puppy();
+        p.eat();
+        p.bark();
+        p.weep();
+    }
+}V
