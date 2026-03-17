@@ -1,0 +1,101 @@
+1) Employee
+class Employee {
+    String firstName, lastName;
+    double salary;
+
+    Employee(String f, String l, double s) {
+        firstName = f;
+        lastName = l;
+        salary = (s > 0) ? s : 0;
+    }
+
+    double yearlySalary() {
+        return salary * 12;
+    }
+
+    public static void main(String[] args) {
+        Employee e1 = new Employee("Sid", "Deshmukh", 30000);
+        Employee e2 = new Employee("Rahul", "Patil", 25000);
+
+        System.out.println(e1.yearlySalary());
+        System.out.println(e2.yearlySalary());
+
+        e1.salary *= 1.10;
+        e2.salary *= 1.10;
+
+        System.out.println(e1.yearlySalary());
+        System.out.println(e2.yearlySalary());
+    }
+}
+2)Area of Rectangle =
+import java.util.Scanner;
+
+class Area {
+    int l, b;
+
+    void setDim(int x, int y) {
+        l = x;
+        b = y;
+    }
+
+    int getArea() {
+        return l * b;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Area a = new Area();
+
+        a.setDim(sc.nextInt(), sc.nextInt());
+        System.out.println(a.getArea());
+    }
+}
+3)Static Demo
+class StaticDemo {
+    static int x = 10;
+
+    static void show() {
+        System.out.println(x);
+    }
+
+    public static void main(String[] args) {
+        show();
+    }
+}
+4)Stack & Queue
+import java.util.Stack;
+
+class StackDemo {
+    public static void main(String[] args) {
+        Stack<Integer> s = new Stack<>();
+        s.push(1);
+        s.push(2);
+        System.out.println(s.pop());
+    }
+}
+B)
+import java.util.LinkedList;
+import java.util.Queue;
+
+class QueueDemo {
+    public static void main(String[] args) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(1);
+        q.add(2);
+        System.out.println(q.remove());
+    }
+}
+5)Alphabetical Orde
+import java.util.Arrays;
+
+class Names {
+    public static void main(String[] args) {
+        String[] n = {"Sid","Rahul","Amit","Kunal","Rohit",
+                      "Neha","Pooja","Anita","Vikas","Suresh"};
+
+        Arrays.sort(n);
+
+        for (String s : n)
+            System.out.println(s);
+    }
+}
