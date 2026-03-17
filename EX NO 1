@@ -1,0 +1,31 @@
+BASICS CODE=
+A} class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+B}class ArithmeticOperation {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 5;
+
+        System.out.println("Addition = " + (a + b));
+        System.out.println("Subtraction = " + (a - b));
+        System.out.println("Multiplication = " + (a * b));
+        System.out.println("Division = " + (a / b));
+    }
+}
+C} class SwapWithoutTemp {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 20;
+
+        a = a + b;
+        b = a - b;
+        a = a - b;
+
+        System.out.println("After Swapping:");
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+    }
+}
